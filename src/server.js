@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import viewEngine from './config/viewEngine';
 import route from './routes/web';
+import connectDB from './config/connectDB'
 
 // help to use process.env
 require('dotenv').config();
@@ -17,5 +18,7 @@ viewEngine(app);
 
 // routes
 route(app);
+
+connectDB();
 
 app.listen(port, () => console.log(`App running on http://localhost:${port}`));
